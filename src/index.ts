@@ -180,8 +180,8 @@ function _validate_key(public_key_string: number[]) {
   return public_key;
 }
 
-export function keygen() {
-  const keypair = EC.genKeyPair();
+export function keygen(secret?: string) {
+  const keypair = secret ? EC.keyFromPrivate(secret) : EC.genKeyPair()
   const secret_key = keypair.getPrivate('hex');
   const public_key = keypair.getPublic('hex');
   return {

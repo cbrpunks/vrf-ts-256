@@ -6,7 +6,7 @@ import { prove, proof_to_hash, verify, keygen, validate_key } from './index';
 //const public_key =
 //   '0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798';
 
-const { public_key, secret_key, compressed } = keygen();
+const { public_key, secret_key, compressed } = keygen('0x440ffd775ce91a833ab410777204d5341a6f9fa91216a6f3ee2c051fea6a0428');
 console.log(compressed.public_key)
 validate_key(public_key)
 const alpha = '73616d706c65';
