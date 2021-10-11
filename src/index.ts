@@ -186,9 +186,11 @@ export function keygen(secret?: string) {
   const public_key = keypair.getPublic('hex');
   return {
     secret_key,
-    public_key,
-    compressed: {
-      public_key: keypair.getPublic(true, 'hex'),
+    public_key: {
+      key: public_key,
+      compressed: keypair.getPublic(true, 'hex'),
+      x: keypair.getPublic().getX().toString('hex'),
+      y: keypair.getPublic().getY().toString('hex')
     }
   };
 }
