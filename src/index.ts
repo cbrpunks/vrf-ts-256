@@ -195,9 +195,22 @@ export function keygen(secret?: string) {
   };
 }
 
-export function prove(secret_key: string, alpha: string): string {
+export function prove(secret_key: string, alpha: string) {
   const pi = _prove(new BN(secret_key, 'hex'), utils.toArray(alpha, 'hex'));
-  return utils.toHex(pi);
+  const D = decode_proof(pi);
+  if (D == 'INVALID') {
+    throw new Error('Invalid proof');
+  }
+  const { Gamma, c, s } = D;
+  return {
+    pi: utils.toHex(pi),
+    decoded: {
+      gammaX: Gamma.getX().toString('hex'),
+      gammaY: Gamma.getY().toString('hex'),
+      c: c.toString('hex'),
+      s: s.toString('hex')
+    }
+  }
 }
 
 export function proof_to_hash(pi: string): string {

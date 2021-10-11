@@ -1,10 +1,11 @@
 {
-  "name": "vrf-ts",
+  "name": "ecvrf-sha256-ts",
   "version": "1.0.0",
   "description": "Elliptic Curve VRF",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "prepare": "npm run build",
     "build": "rm -rf dist && tsc",
     "test": "ts-node src/test.ts"
   },

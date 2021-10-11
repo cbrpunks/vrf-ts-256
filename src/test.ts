@@ -11,8 +11,8 @@ console.log(public_key)
 validate_key(public_key.key)
 const alpha = '73616d706c65';
 const pi = prove(secret_key, alpha);
-const beta = proof_to_hash(pi);
-const res = verify(public_key.key, pi, alpha);
+const beta = proof_to_hash(pi.pi);
+const res = verify(public_key.key, pi.pi, alpha);
 console.log(pi);
 console.log(beta);
 console.log(res);
