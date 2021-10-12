@@ -189,8 +189,8 @@ export function keygen(secret?: string) {
     public_key: {
       key: public_key,
       compressed: keypair.getPublic(true, 'hex'),
-      x: keypair.getPublic().getX().toString('hex'),
-      y: keypair.getPublic().getY().toString('hex')
+      x: keypair.getPublic().getX(),
+      y: keypair.getPublic().getY()
     }
   };
 }
@@ -205,10 +205,10 @@ export function prove(secret_key: string, alpha: string) {
   return {
     pi: utils.toHex(pi),
     decoded: {
-      gammaX: Gamma.getX().toString('hex'),
-      gammaY: Gamma.getY().toString('hex'),
-      c: c.toString('hex'),
-      s: s.toString('hex')
+      gammaX: Gamma.getX(),
+      gammaY: Gamma.getY(),
+      c,
+      s
     }
   }
 }
