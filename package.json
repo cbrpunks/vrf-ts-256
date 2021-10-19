@@ -1,7 +1,7 @@
 {
-  "name": "ecvrf-sha256-ts",
+  "name": "vrf-ts-256",
   "version": "1.0.0",
-  "description": "Elliptic Curve VRF",
+  "description": "Elliptic Curve VRF (SECP256K1-SHA256-TAI)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
