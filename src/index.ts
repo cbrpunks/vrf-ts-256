@@ -175,6 +175,7 @@ function _proof_to_hash(pi: number[]): number[] {
     .update(suite)
     .update([0x03])
     .update(encode_point(Gamma))
+    .update([0x00])
     .digest();
 
   return beta;
