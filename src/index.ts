@@ -75,6 +75,7 @@ function hash_to_curve(public_key: Point, alpha: number[]) {
       .update(encode_point(public_key))
       .update(alpha)
       .update([ctr])
+      .update([0x00])
       .digest();
     hash = arbitrary_string_to_point(hash_string); // cofactor = 1, skip multiply
     ctr += 1;
