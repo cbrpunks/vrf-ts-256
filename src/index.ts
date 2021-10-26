@@ -41,10 +41,33 @@ function arbitrary_string_to_point(s: number[]): Point | 'INVALID' {
   return string_to_point([0x02, ...s]);
 }
 
+function is_on_curve(point: Point): boolean {
+  const x = point.getX();
+  const y = point.getY();
+  if (
+    x.isZero()        ||
+    x.gte(EC.curve.p) ||
+    y.isZero()        ||
+    y.gte(EC.curve.p)
+  ) {
+    return false;
+  }
+  //let lhs = (y.mul(y)).mod(EC.curve.p)
+  //let rhs = x.mul((x.mul(x)).mod(EC.curve.p)).mod(EC.curve.p)
+
+  let lhs = (y.mul(y)).mod(EC.curve.p)
+  let rhs = ((x.mul(x).mod(EC.curve.p)).mul(x)).mod(EC.curve.p)
+
+  // a == 0 for secp256k1
+  // b == 7 for secp256k1
+  rhs = (rhs.add(EC.curve.b)).mod(EC.curve.p)
+  return lhs.eq(rhs);
+}
+
 function hash_to_curve(public_key: Point, alpha: number[]) {
   let hash: Point | 'INVALID' = 'INVALID';
   let ctr = 0;
-  while ((hash == 'INVALID' || hash.isInfinity()) && ctr < 256) {
+  while ((hash == 'INVALID' || hash.isInfinity() || !is_on_curve(hash)) && ctr < 256) {
     const hash_string = sha256
       .create()
       .update(suite)
