@@ -23,7 +23,7 @@ function string_to_point(s: number[]): Point | 'INVALID' {
 
 function encode_point(p: Point): number[] {
   const prefix = new BN(2).add((p.getY().mod(new BN(2))));
-  return [...prefix.toArray(), ...p.getX().toArray()]
+  return [...prefix.toArray(), ...append_leading_zeroes(p.getX().toArray(), 32)]
 }
 
 function append_leading_zeroes(p: number[], qlen: number): number[] {
