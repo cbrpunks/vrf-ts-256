@@ -1,5 +1,9 @@
 {
   "name": "vrf-ts-256",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cbrpunks/vrf-ts-256.git"
+  },
   "version": "1.0.0",
   "description": "Elliptic Curve VRF (SECP256K1-SHA256-TAI)",
   "main": "dist/index.js",
