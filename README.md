@@ -1,3 +1,5 @@
+[![https://nodei.co/npm/vrf-ts-256.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/vrf-ts-256.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/YOUR-MODULE-NAME)
+
 # vrf-ts-256
 ## ECVRF-SECP256K1-SHA256-TAI (draft-irtf-cfrg-vrf-04)
 
