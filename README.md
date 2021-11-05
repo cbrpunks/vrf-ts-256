@@ -8,7 +8,7 @@
 ## Usage
 
 ```javascript
-const ecvrf = require('ecvrf-sha256-ts')
+const ecvrf = require('vrf-ts-256')
 
 const keypair = ecvrf.keygen()
 const proof = ecvrf.prove(keypair.secret_key, '73616d706c65')
